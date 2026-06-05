@@ -1292,12 +1292,12 @@ function DownloadKit() {
       <div className="grid grid-cols-[1fr_360px] items-center gap-16">
         {/* ── Instrucciones ── */}
         <div className="flex flex-col gap-7">
-          <Badge variant="cyan">Manos a la obra</Badge>
-          <h1 className="text-5xl font-extrabold leading-tight text-white">
-            Descarga el <span className="gradient-text">Kit de Supervivencia</span>
+          <Badge variant="cyan">Show time</Badge>
+          <h1 className="text-6xl font-extrabold leading-tight text-white">
+            Hora de <span className="gradient-text">Código</span>
           </h1>
           <p className="text-lg text-ink-200">
-            Cloná el repositorio y seguí la demo paso a paso desde tu propia máquina.
+            Basta de teoría. Cloná el repo, arrancá el server y seguimos la demo en vivo.
           </p>
           <div className="flex flex-col gap-3 rounded-2xl border-2 border-ink-600 bg-ink-800 p-6 font-mono text-base">
             <code className="text-signal-cyan">
@@ -1347,7 +1347,7 @@ export const SLIDES: SlideEntry[] = [
   { id: "why-antigravity", Component: WhyAntigravity, title: "¿Por qué Antigravity?" },
   { id: "comparison-table", Component: ComparisonTable, title: "Antes vs Ahora" },
   { id: "three-reflexes", Component: ThreeReflexes, title: "Tres herramientas" },
-  { id: "download-kit", Component: DownloadKit, title: "Descarga el Kit" },
+  { id: "download-kit", Component: DownloadKit, title: "Hora de Código" },
   { id: "pillar-1-intro", Component: Pillar1Intro, title: "Pilar 01 — Intro" },
   { id: "pillar-1-demo", Component: Pillar1Demo, title: "Pilar 01 — Demo" },
   { id: "pillar-2-intro", Component: Pillar2Intro, title: "Pilar 02 — Intro" },
