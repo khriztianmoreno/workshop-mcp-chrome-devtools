@@ -1,0 +1,20 @@
+-- ---------------------------------------------------------------------------
+-- Pillar 3a demo target.
+--
+-- This file is intentionally a stub. During the workshop the instructor
+-- opens a second agent in the Agent Manager and asks it to:
+--
+--   1. Look at lib/mocks/projects.ts and lib/types.ts to understand the
+--      shape of a project.
+--   2. Using the Supabase MCP, create a `projects` table that matches that
+--      shape (including category enum and a votes column).
+--   3. Write the migration SQL into this file.
+--   4. Seed the table with the 8 mocked projects from lib/mocks/projects.ts.
+--   5. Bonus: update app/api/projects/route.ts so the GET handler queries
+--      Supabase instead of importing the mock module.
+--
+-- The agent works in parallel with the primary agent doing the rest of the
+-- workshop demos — that is the multiplication-of-hands moment.
+-- ---------------------------------------------------------------------------
+
+-- TODO: ask the parallel agent to fill this in.
