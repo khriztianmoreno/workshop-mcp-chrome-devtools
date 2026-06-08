@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@khriztianmoreno/speaker-kit':
+        specifier: ^1.1.0
+        version: 1.1.0(@supabase/supabase-js@2.106.0)(@types/react@18.3.28)(next@14.2.18(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@supabase/supabase-js':
         specifier: ^2.106.0
         version: 2.106.0
@@ -76,6 +79,19 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
+
+  '@khriztianmoreno/speaker-kit@1.1.0':
+    resolution: {integrity: sha512-tkSnJbve2+N70Vn6Mj7ezdVuxzQrE3QZDZ98ObR4yBv6rixoKxViw0ZgOzUkNkVp+hlUZK8WEKrPSzBVC0I/LQ==}
+    peerDependencies:
+      '@supabase/supabase-js': '>=2'
+      next: '>=14'
+      react: '>=18'
+      react-dom: '>=18'
+    peerDependenciesMeta:
+      '@supabase/supabase-js':
+        optional: true
+      next:
+        optional: true
 
   '@next/env@14.2.18':
     resolution: {integrity: sha512-2vWLOUwIPgoqMJKG6dt35fVXVhgM09tw4tK3/Q34GFXDrfiHlG7iS33VA4ggnjWxjiz9KV5xzfsQzJX6vGAekA==}
@@ -938,6 +954,19 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  '@khriztianmoreno/speaker-kit@1.1.0(@supabase/supabase-js@2.106.0)(@types/react@18.3.28)(next@14.2.18(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-markdown: 10.1.0(@types/react@18.3.28)(react@18.3.1)
+      remark-gfm: 4.0.1
+    optionalDependencies:
+      '@supabase/supabase-js': 2.106.0
+      next: 14.2.18(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+      - supports-color
 
   '@next/env@14.2.18': {}
 

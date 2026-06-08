@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "@khriztianmoreno/speaker-kit/styles.css";
 
 export const metadata: Metadata = {
   title: "Workshop MCP Chrome Devtools",
