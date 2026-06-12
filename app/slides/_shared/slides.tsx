@@ -612,10 +612,9 @@ function Demo2b() {
             <Prompt
               lines={[
                 `El form de /login da 404. Mirá la`,
-                `pestaña Network, revisá la URL del`,
+                `pestaña Network usando el MCP de Chrome DevTools, revisá la URL del`,
                 `fetch en app/login/page.tsx y compará`,
-                `con las rutas en app/api/.`,
-                `Arreglá el typo.`,
+                `con las rutas en app/api/.`
               ]}
             />
           </div>
@@ -667,7 +666,7 @@ function Demo2c() {
             <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">El fix</p>
             <Prompt
               lines={[
-                "Conéctate a localhost:3000 con el MCP.",
+                "Conéctate a localhost:3000 con el MCP de Chrome DevTools.",
                 "Abrí la consola — vas a ver",
                 '"Maximum update depth exceeded".',
                 "Analizá ProjectsFilterGrid en",
@@ -744,13 +743,10 @@ function Demo2d() {
             <Prompt
               lines={[
                 "Revisá Network y Performance en",
-                "localhost:3000 con el MCP.",
+                "localhost:3000 con el MCP de Chrome DevTools.",
                 "Las tarjetas cargan 8 imgs crudas",
                 "sin lazy loading (~200KB c/u).",
-                "Optimizá project-card.tsx con",
-                "next/image + width, height, sizes.",
-                "Actualizá next.config.js para",
-                "permitir picsum.photos.",
+                "Optimizá project-card.tsx basado en lo que veas en los logs del MCP",
               ]}
             />
             <div className="flex flex-col gap-2 rounded-xl border-2 border-ink-600 bg-ink-800 p-5 font-mono text-sm">

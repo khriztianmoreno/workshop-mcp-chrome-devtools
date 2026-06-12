@@ -4,3 +4,7 @@ node_modules
 .DS_Store
 *.tsbuildinfo
 .claude
+
+
+# Archivos temporales de automatización/MCP
+temp-chrome-profile/
