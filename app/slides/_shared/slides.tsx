@@ -45,7 +45,9 @@ export function Prompt({ lines }: { lines: string[] }) {
     <div className="rounded-xl border-2 border-signal-cyan/50 bg-ink-900 p-6">
       <div className="mb-3 flex items-center gap-2">
         <Terminal className="h-4 w-4 text-signal-cyan" />
-        <span className="text-xs font-bold uppercase tracking-widest text-signal-cyan">Prompt</span>
+        <span className="text-xs font-bold uppercase tracking-widest text-signal-cyan">
+          Prompt
+        </span>
       </div>
       <div className="font-mono text-base leading-relaxed text-signal-cyan">
         {lines.map((line, i) => (
@@ -86,7 +88,10 @@ function PhotoCarousel({ images }: { images: string[] }) {
   }, [images.length]);
 
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl border-2 border-signal-orange/40" style={{ aspectRatio: "3/4" }}>
+    <div
+      className="relative w-full overflow-hidden rounded-2xl border-2 border-signal-orange/40"
+      style={{ aspectRatio: "3/4" }}
+    >
       {images.map((src, i) => (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -115,17 +120,39 @@ function PhotoCarousel({ images }: { images: string[] }) {
 
 // ─── Slides ────────────────────────────────────────────────────────────────
 
+function OpeningQR() {
+  return (
+    <S center>
+      <div className="flex max-w-2xl flex-col items-center gap-10">
+        <Badge variant="cyan">Seguí la presentación</Badge>
+        <h1 className="gradient-text text-6xl font-extrabold tracking-tight">
+          Escaneá el QR
+        </h1>
+        <div className="rounded-2xl border-4 border-signal-cyan/50 bg-white p-8 shadow-[0_0_80px_-12px_rgba(34,211,238,0.35)]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/slides/qr-charla.png" alt="QR Charla" className="h-72 w-72" />
+        </div>
+        <p className="font-mono text-sm font-bold text-signal-cyan">
+          workshop-mcp-chrome-devtools-git-talk-khriztianmoreno-team.vercel.app/slides
+        </p>
+      </div>
+    </S>
+  );
+}
+
 function Cover() {
   return (
     <S center>
       <div className="flex flex-col items-center gap-8">
         <div className="flex flex-wrap justify-center gap-3">
-          {["Antigravity IDE", "Chrome DevTools MCP", "Agent Manager"].map((t) => (
-            <Badge key={t}>{t}</Badge>
-          ))}
+          {["Antigravity IDE", "Chrome DevTools MCP", "Agent Manager"].map(
+            (t) => (
+              <Badge key={t}>{t}</Badge>
+            ),
+          )}
         </div>
         <h1 className="gradient-text text-[72px] font-extrabold leading-none tracking-tight">
-        Desarrollo web potenciado por IA:
+          Desarrollo web potenciado por IA:
           <br />
           Optimiza tu workflow
         </h1>
@@ -133,8 +160,8 @@ function Cover() {
           El nacimiento del desarrollo Agent-First
         </p>
         <p className="max-w-2xl text-center text-lg text-ink-200">
-          Cerrando el bucle entre el código estático y el Runtime vivo
-          con Antigravity IDE y Chrome DevTools MCP
+          Cerrando el bucle entre el código estático y el Runtime vivo con
+          Antigravity IDE y Chrome DevTools MCP
         </p>
         <div className="h-0.5 w-32 bg-gradient-to-r from-signal-orange to-signal-violet" />
         <p className="text-base font-semibold text-ink-200">@khriztianmoreno</p>
@@ -142,7 +169,6 @@ function Cover() {
     </S>
   );
 }
-
 
 function AboutMe() {
   const items = [
@@ -186,7 +212,9 @@ function AboutMe() {
                 <dt className="w-28 shrink-0 pt-0.5 font-mono text-xs font-extrabold uppercase tracking-widest text-ink-400">
                   {item.label}
                 </dt>
-                <dd className="text-base font-medium text-white">{item.value}</dd>
+                <dd className="text-base font-medium text-white">
+                  {item.value}
+                </dd>
               </div>
             ))}
           </dl>
@@ -209,8 +237,14 @@ function AboutMe() {
           />
           <div className="flex flex-col items-center gap-2 rounded-2xl border-2 border-ink-600 bg-ink-800 py-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/slides/logo.png" alt="khriztianmoreno" className="h-8 w-auto" />
-            <p className="font-mono text-xs font-bold text-signal-cyan">khriztianmoreno.dev</p>
+            <img
+              src="/slides/logo.png"
+              alt="khriztianmoreno"
+              className="h-8 w-auto"
+            />
+            <p className="font-mono text-xs font-bold text-signal-cyan">
+              khriztianmoreno.dev
+            </p>
           </div>
         </div>
       </div>
@@ -225,9 +259,12 @@ function TheAgentsAreBound() {
         <p className="text-sm font-bold uppercase tracking-widest text-ink-300">
           El problema de la Privación Sensorial
         </p>
-        <h1 className="gradient-text text-6xl font-extrabold">Los agentes de IA son ciegos</h1>
+        <h1 className="gradient-text text-6xl font-extrabold">
+          Los agentes de IA son ciegos
+        </h1>
         <p className="max-w-2xl text-center text-2xl font-medium text-white">
-          Generan código basándose en texto estático, sin saber si la interfaz se rompió.
+          Generan código basándose en texto estático, sin saber si la interfaz
+          se rompió.
         </p>
         <div className="mt-4 grid w-full grid-cols-3 gap-5">
           {[
@@ -259,7 +296,9 @@ function ClosedLoop() {
           <br />
           Execution
         </h1>
-        <p className="text-xl font-semibold text-white">Runtime Context Injection</p>
+        <p className="text-xl font-semibold text-white">
+          Runtime Context Injection
+        </p>
         <div className="mt-4 flex w-full flex-col gap-4">
           <div className="flex items-center gap-5 rounded-xl border-2 border-red-500/30 bg-red-500/10 p-5">
             <span className="shrink-0 rounded-full border border-red-500/50 bg-red-500/20 px-3 py-1 font-mono text-xs font-bold text-red-400">
@@ -285,9 +324,21 @@ function ClosedLoop() {
 
 function ComparisonTable() {
   const rows = [
-    ["Visibilidad", "Código fuente estático", "Heurística del DOM y estado vivo del runtime"],
-    ["Depuración", "Copy-paste manual de errores", "Acceso directo autónomo vía get_console_message"],
-    ["Optimización", "Estimaciones teóricas", "Auditorías reales con performance_start_trace"],
+    [
+      "Visibilidad",
+      "Código fuente estático",
+      "Heurística del DOM y estado vivo del runtime",
+    ],
+    [
+      "Depuración",
+      "Copy-paste manual de errores",
+      "Acceso directo autónomo vía get_console_message",
+    ],
+    [
+      "Optimización",
+      "Estimaciones teóricas",
+      "Auditorías reales con performance_start_trace",
+    ],
     ["Red", "Inspector manual", "list_network_requests + mocking de scripts"],
   ];
   return (
@@ -313,10 +364,17 @@ function ComparisonTable() {
             </thead>
             <tbody>
               {rows.map(([dim, before, after], i) => (
-                <tr key={dim} className={i % 2 === 0 ? "bg-ink-900" : "bg-ink-800"}>
-                  <td className="px-7 py-5 text-base font-bold text-white">{dim}</td>
+                <tr
+                  key={dim}
+                  className={i % 2 === 0 ? "bg-ink-900" : "bg-ink-800"}
+                >
+                  <td className="px-7 py-5 text-base font-bold text-white">
+                    {dim}
+                  </td>
                   <td className="px-7 py-5 text-base text-ink-200">{before}</td>
-                  <td className="px-7 py-5 text-base font-medium text-white">{after}</td>
+                  <td className="px-7 py-5 text-base font-medium text-white">
+                    {after}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -358,7 +416,8 @@ function ThreeReflexes() {
     <S center>
       <div className="flex w-full max-w-6xl flex-col items-center gap-10">
         <h1 className="text-5xl font-extrabold text-white">
-          Tres herramientas. <span className="gradient-text">Tres reflejos.</span>
+          Tres herramientas.{" "}
+          <span className="gradient-text">Tres reflejos.</span>
         </h1>
         <div className="grid w-full grid-cols-3 gap-7">
           {items.map((p) => (
@@ -366,7 +425,9 @@ function ThreeReflexes() {
               key={p.num}
               className={`flex flex-col gap-5 rounded-2xl border-2 p-9 ${p.card}`}
             >
-              <span className={`font-mono text-sm font-extrabold ${p.label}`}>{p.num}</span>
+              <span className={`font-mono text-sm font-extrabold ${p.label}`}>
+                {p.num}
+              </span>
               <span className={p.label}>{p.icon}</span>
               <h3 className="text-lg font-bold text-white">{p.title}</h3>
               <p className="text-base text-white">{p.sub}</p>
@@ -393,7 +454,9 @@ function Pillar1Intro() {
         </blockquote>
         <div className="flex items-center gap-3 rounded-xl border-2 border-ink-600 bg-ink-800 p-5">
           <Code2 className="h-5 w-5 shrink-0 text-ink-300" />
-          <span className="font-mono text-sm font-semibold text-ink-300">Target:</span>
+          <span className="font-mono text-sm font-semibold text-ink-300">
+            Target:
+          </span>
           <code className="font-mono text-base font-bold text-signal-orange">
             components/pitch-section.tsx
           </code>
@@ -417,7 +480,10 @@ function Pillar1Demo() {
             "Lo pegué en Antigravity IDE junto al prompt",
             "El stub vacío se convirtió en código real en segundos",
           ].map((step, i) => (
-            <li key={step} className="flex items-start gap-4 text-xl text-white">
+            <li
+              key={step}
+              className="flex items-start gap-4 text-xl text-white"
+            >
               <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-signal-orange/60 bg-signal-orange/20 text-sm font-extrabold text-signal-orange">
                 {i + 1}
               </span>
@@ -436,8 +502,8 @@ function Pillar1Demo() {
         <div className="flex items-center gap-3 rounded-xl border-2 border-signal-amber/40 bg-signal-amber/10 p-5">
           <Zap className="h-5 w-5 shrink-0 text-signal-amber" />
           <p className="text-base font-medium text-white">
-            <strong className="text-signal-amber">Bonus — Playgrounds:</strong> sandboxeá ideas
-            locas sin tocar el repo principal
+            <strong className="text-signal-amber">Bonus — Playgrounds:</strong>{" "}
+            sandboxeá ideas locas sin tocar el repo principal
           </p>
         </div>
       </div>
@@ -481,11 +547,11 @@ function Pillar2Intro() {
       <div className="flex max-w-5xl flex-col gap-8">
         <Badge variant="cyan">Pilar 02</Badge>
         <h1 className="text-6xl font-extrabold leading-tight text-white">
-          Depuración de{" "}
-          <span className="gradient-text">Runtime Real</span>
+          Depuración de <span className="gradient-text">Runtime Real</span>
         </h1>
         <blockquote className="border-l-4 border-signal-cyan pl-7 text-xl font-medium italic text-white">
-          "Cuatro bugs. El agente lee el runtime — no adivina, no busca typos en texto."
+          "Cuatro bugs. El agente lee el runtime — no adivina, no busca typos en
+          texto."
         </blockquote>
         <div className="grid grid-cols-2 gap-4">
           {bugs.map((b) => (
@@ -496,12 +562,16 @@ function Pillar2Intro() {
               <div className="mt-0.5 shrink-0">{b.icon}</div>
               <div className="flex min-w-0 flex-col gap-1">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-extrabold text-ink-300">{b.label}</span>
+                  <span className="font-mono text-xs font-extrabold text-ink-300">
+                    {b.label}
+                  </span>
                   <span className="rounded bg-ink-700 px-1.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-ink-400">
                     {b.tag}
                   </span>
                 </div>
-                <code className="truncate font-mono text-sm font-bold text-red-300">{b.file}</code>
+                <code className="truncate font-mono text-sm font-bold text-red-300">
+                  {b.file}
+                </code>
                 <span className="text-sm text-white">{b.desc}</span>
               </div>
             </div>
@@ -517,7 +587,9 @@ function Demo2a() {
     <S>
       <div className="flex max-w-5xl flex-col gap-6">
         <Badge variant="cyan">Bug 2a — CSS</Badge>
-        <h2 className="text-4xl font-extrabold text-white">La píldora invisible</h2>
+        <h2 className="text-4xl font-extrabold text-white">
+          La píldora invisible
+        </h2>
         <div className="grid grid-cols-2 gap-7">
           <div className="flex flex-col gap-5">
             <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">
@@ -537,14 +609,22 @@ function Demo2a() {
                 "Ver: text-white sobre bg-white",
                 "Edit color en el inspector → validar",
               ].map((s, i) => (
-                <li key={s} className="flex items-center gap-3 text-base text-white">
-                  <span className="font-mono font-bold text-signal-cyan">{i + 1}.</span> {s}
+                <li
+                  key={s}
+                  className="flex items-center gap-3 text-base text-white"
+                >
+                  <span className="font-mono font-bold text-signal-cyan">
+                    {i + 1}.
+                  </span>{" "}
+                  {s}
                 </li>
               ))}
             </ol>
           </div>
           <div className="flex flex-col gap-5">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">El fix</p>
+            <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">
+              El fix
+            </p>
             <Prompt
               lines={[
                 `En components/hero.tsx,`,
@@ -575,7 +655,9 @@ function Demo2b() {
     <S>
       <div className="flex max-w-5xl flex-col gap-6">
         <Badge variant="cyan">Bug 2b — Network</Badge>
-        <h2 className="text-4xl font-extrabold text-white">404 en el form de login</h2>
+        <h2 className="text-4xl font-extrabold text-white">
+          404 en el form de login
+        </h2>
         <div className="grid grid-cols-2 gap-7">
           <div className="flex flex-col gap-5">
             <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">
@@ -601,20 +683,28 @@ function Demo2b() {
                 "DevTools → Network → POST 404",
                 "Ver fetch('/api/lgoin') en page.tsx",
               ].map((s, i) => (
-                <li key={s} className="flex items-center gap-3 text-base text-white">
-                  <span className="font-mono font-bold text-signal-cyan">{i + 1}.</span> {s}
+                <li
+                  key={s}
+                  className="flex items-center gap-3 text-base text-white"
+                >
+                  <span className="font-mono font-bold text-signal-cyan">
+                    {i + 1}.
+                  </span>{" "}
+                  {s}
                 </li>
               ))}
             </ol>
           </div>
           <div className="flex flex-col gap-5">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">El fix</p>
+            <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">
+              El fix
+            </p>
             <Prompt
               lines={[
                 `El form de /login da 404. Mirá la`,
                 `pestaña Network usando el MCP de Chrome DevTools, revisá la URL del`,
                 `fetch en app/login/page.tsx y compará`,
-                `con las rutas en app/api/.`
+                `con las rutas en app/api/.`,
               ]}
             />
           </div>
@@ -639,19 +729,27 @@ function Demo2c() {
               El problema
             </p>
             <div className="flex flex-col gap-3 rounded-2xl border-2 border-signal-amber/40 bg-signal-amber/10 p-6 font-mono text-sm">
-              <p className="text-ink-300">{"// filteredProjects: nueva ref cada render"}</p>
-              <p className="text-white">
-                {"const filteredProjects ="}
+              <p className="text-ink-300">
+                {"// filteredProjects: nueva ref cada render"}
+              </p>
+              <p className="text-white">{"const filteredProjects ="}</p>
+              <p className="pl-4 text-red-300">{"activeCategory === 'all'"}</p>
+              <p className="pl-6 text-red-300">
+                {"? [...displayProjects] // ← siempre nuevo"}
+              </p>
+              <p className="pl-6 text-red-300">
+                {"  : displayProjects.filter(...)"}
+              </p>
+              <p className="mt-2 text-white">{"useEffect(() => {"}</p>
+              <p className="pl-4 text-red-300">
+                {"setDisplayProjects([...filteredProjects]"}
               </p>
               <p className="pl-4 text-red-300">
-                {"activeCategory === 'all'"}
+                {"  .sort((a,b) => b.votes - a.votes));"}
               </p>
-              <p className="pl-6 text-red-300">{"? [...displayProjects] // ← siempre nuevo"}</p>
-              <p className="pl-6 text-red-300">{"  : displayProjects.filter(...)"}</p>
-              <p className="mt-2 text-white">{"useEffect(() => {"}</p>
-              <p className="pl-4 text-red-300">{"setDisplayProjects([...filteredProjects]"}</p>
-              <p className="pl-4 text-red-300">{"  .sort((a,b) => b.votes - a.votes));"}</p>
-              <p className="text-white">{"}, [filteredProjects]); // ← loop infinito"}</p>
+              <p className="text-white">
+                {"}, [filteredProjects]); // ← loop infinito"}
+              </p>
             </div>
             <div className="rounded-xl border-2 border-red-500/30 bg-red-500/10 p-4">
               <p className="font-mono text-sm font-bold text-red-400">
@@ -663,7 +761,9 @@ function Demo2c() {
             </div>
           </div>
           <div className="flex flex-col gap-5">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">El fix</p>
+            <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">
+              El fix
+            </p>
             <Prompt
               lines={[
                 "Conéctate a localhost:3000 con el MCP de Chrome DevTools.",
@@ -718,10 +818,17 @@ function Demo2d() {
                 ["picsum.photos/pebble/800/450", "~205 KB", true],
                 ["… 5 más", "~1 MB total", true],
               ].map(([url, size, eager]) => (
-                <div key={String(url)} className="flex items-center justify-between gap-2">
-                  <span className="truncate font-mono text-xs text-ink-300">{String(url)}</span>
+                <div
+                  key={String(url)}
+                  className="flex items-center justify-between gap-2"
+                >
+                  <span className="truncate font-mono text-xs text-ink-300">
+                    {String(url)}
+                  </span>
                   <div className="flex shrink-0 items-center gap-2">
-                    <span className="font-mono text-xs font-bold text-red-400">{String(size)}</span>
+                    <span className="font-mono text-xs font-bold text-red-400">
+                      {String(size)}
+                    </span>
                     {eager && (
                       <span className="rounded bg-red-500/20 px-1.5 py-0.5 text-[9px] font-bold uppercase text-red-400">
                         eager
@@ -732,14 +839,19 @@ function Demo2d() {
               ))}
             </div>
             <div className="rounded-xl border-2 border-red-500/30 bg-red-500/10 p-4">
-              <p className="font-mono text-sm font-bold text-red-400">LCP &gt; 4 s · Score bajo</p>
+              <p className="font-mono text-sm font-bold text-red-400">
+                LCP &gt; 4 s · Score bajo
+              </p>
               <p className="mt-1 text-xs text-ink-300">
-                Sin lazy loading, sin width/height, sin sizes — bloquea el hilo principal
+                Sin lazy loading, sin width/height, sin sizes — bloquea el hilo
+                principal
               </p>
             </div>
           </div>
           <div className="flex flex-col gap-5">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">El fix</p>
+            <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">
+              El fix
+            </p>
             <Prompt
               lines={[
                 "Revisá Network y Performance en",
@@ -781,23 +893,29 @@ function Pillar3Intro() {
           <span className="gradient-text">Avanzada</span>
         </h1>
         <blockquote className="border-l-4 border-signal-violet pl-7 text-2xl font-medium italic text-white">
-          "No solo paralelizar tareas — agentes que resuelven integraciones fallidas leyendo el runtime."
+          "No solo paralelizar tareas — agentes que resuelven integraciones
+          fallidas leyendo el runtime."
         </blockquote>
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-3 rounded-xl border-2 border-red-500/30 bg-red-500/10 p-5">
             <Network className="h-5 w-5 shrink-0 text-red-400" />
             <div>
-              <p className="text-sm font-bold text-red-300">GET /api/projects → 500</p>
+              <p className="text-sm font-bold text-red-300">
+                GET /api/projects → 500
+              </p>
               <p className="text-xs text-ink-300">
-                El endpoint de Supabase está roto: la migración existe pero el mapeo de columnas es incorrecto.
+                El endpoint de Supabase está roto: la migración existe pero el
+                mapeo de columnas es incorrecto.
               </p>
             </div>
           </div>
           <div className="rounded-xl border-2 border-ink-600 bg-ink-800 p-5">
             <p className="text-base font-medium text-white">
-              El <strong className="font-bold text-white">Inbox asíncrono</strong> evita el desorden
-              de chats lineales. Si el agente se bloquea en un permiso de Supabase, levanta un
-              ticket — vos seguís sin interrupciones.
+              El{" "}
+              <strong className="font-bold text-white">Inbox asíncrono</strong>{" "}
+              evita el desorden de chats lineales. Si el agente se bloquea en un
+              permiso de Supabase, levanta un ticket — vos seguís sin
+              interrupciones.
             </p>
           </div>
         </div>
@@ -820,11 +938,14 @@ function Demo3() {
           <Network className="h-5 w-5 shrink-0 text-red-400" />
           <div className="flex flex-col gap-0.5">
             <p className="font-mono text-sm font-bold text-red-400">
-              GET /api/projects → <span className="text-red-300">500 Internal Server Error</span>
+              GET /api/projects →{" "}
+              <span className="text-red-300">500 Internal Server Error</span>
             </p>
             <p className="text-xs text-ink-300">
-              Supabase devuelve <code className="text-red-300">tech_stack</code> pero la API accede a{" "}
-              <code className="text-red-300">techStack</code> → undefined.slice() → crash
+              Supabase devuelve <code className="text-red-300">tech_stack</code>{" "}
+              pero la API accede a{" "}
+              <code className="text-red-300">techStack</code> →
+              undefined.slice() → crash
             </p>
           </div>
         </div>
@@ -846,7 +967,10 @@ function Demo3() {
                 { step: "Detecta snake_case ↔ camelCase mismatch", done: true },
                 { step: "Corrige el mapeo → 200 ✓", done: true },
               ].map((item) => (
-                <li key={item.step} className="flex items-center gap-2 text-sm text-white">
+                <li
+                  key={item.step}
+                  className="flex items-center gap-2 text-sm text-white"
+                >
                   <Check className="h-3.5 w-3.5 shrink-0 text-signal-cyan" />
                   {item.step}
                 </li>
@@ -872,12 +996,16 @@ function Demo3() {
               <p>→ components/about-section.tsx</p>
             </div>
             <p className="text-sm font-medium leading-relaxed text-white">
-              Reescribí los 3 párrafos <code className="text-ink-300">[PLACEHOLDER]</code> como copy de
-              marketing para un marketplace de agentes de IA. Tono cercano, levemente irreverente. 60-80 palabras por párrafo.
+              Reescribí los 3 párrafos{" "}
+              <code className="text-ink-300">[PLACEHOLDER]</code> como copy de
+              marketing para un marketplace de agentes de IA. Tono cercano,
+              levemente irreverente. 60-80 palabras por párrafo.
             </p>
             <div className="mt-auto flex items-center gap-2 rounded-lg bg-ink-900 p-3">
               <Check className="h-4 w-4 shrink-0 text-signal-violet" />
-              <span className="font-mono text-xs text-signal-violet">3 párrafos → copy real</span>
+              <span className="font-mono text-xs text-signal-violet">
+                3 párrafos → copy real
+              </span>
             </div>
           </div>
         </div>
@@ -887,7 +1015,8 @@ function Demo3() {
           <p className="text-base font-medium text-white">
             El agente no siguió un script —{" "}
             <strong className="text-signal-amber">
-              leyó el runtime, diagnosticó el mismatch de tipos y lo resolvió solo.
+              leyó el runtime, diagnosticó el mismatch de tipos y lo resolvió
+              solo.
             </strong>{" "}
             Eso es un colega, no una herramienta.
           </p>
@@ -956,14 +1085,16 @@ function TheTransformation() {
                     row.highlight
                       ? "bg-signal-violet/10 border-t-2 border-signal-violet/30"
                       : i % 2 === 0
-                      ? "bg-ink-900"
-                      : "bg-ink-800"
+                        ? "bg-ink-900"
+                        : "bg-ink-800"
                   }
                 >
                   <td className="px-6 py-4 text-base font-bold text-white">
                     {row.dimension}
                   </td>
-                  <td className="px-6 py-4 text-base text-ink-200">{row.before}</td>
+                  <td className="px-6 py-4 text-base text-ink-200">
+                    {row.before}
+                  </td>
                   <td
                     className={`px-6 py-4 text-base font-semibold ${
                       row.highlight ? "text-signal-violet" : "text-white"
@@ -1014,17 +1145,24 @@ function Closing() {
               bg: "bg-signal-cyan/10",
             },
           ].map((c) => (
-            <div key={c.title} className={`rounded-2xl border-2 p-7 ${c.border} ${c.bg}`}>
-              <h3 className={`mb-3 text-xs font-extrabold uppercase tracking-widest ${c.color}`}>
+            <div
+              key={c.title}
+              className={`rounded-2xl border-2 p-7 ${c.border} ${c.bg}`}
+            >
+              <h3
+                className={`mb-3 text-xs font-extrabold uppercase tracking-widest ${c.color}`}
+              >
                 {c.title}
               </h3>
-              <p className="text-base font-medium leading-relaxed text-white">{c.desc}</p>
+              <p className="text-base font-medium leading-relaxed text-white">
+                {c.desc}
+              </p>
             </div>
           ))}
         </div>
         <blockquote className="border-l-4 border-signal-orange pl-6 text-left text-lg font-medium italic text-white">
-          "Este ecosistema marca el fin de la era del Corte y Confección de código
-          y el inicio de la era de la Gestión de Intenciones Agénticas."
+          "Este ecosistema marca el fin de la era del Corte y Confección de
+          código y el inicio de la era de la Gestión de Intenciones Agénticas."
         </blockquote>
       </div>
     </S>
@@ -1035,16 +1173,22 @@ function QnA() {
   return (
     <S center>
       <div className="flex flex-col items-center gap-10">
-        <h1 className="gradient-text text-[104px] font-extrabold leading-none">¿Preguntas?</h1>
+        <h1 className="gradient-text text-[104px] font-extrabold leading-none">
+          ¿Preguntas?
+        </h1>
         <div className="flex flex-wrap justify-center gap-4">
           <Badge>@khriztianmoreno</Badge>
           <Badge>github.com/khriztianmoreno/workshop-mcp-chrome-devtools</Badge>
         </div>
         <div className="rounded-2xl border-2 border-ink-600 bg-ink-800 p-6 text-center">
           <p className="text-base font-medium text-white">
-            <code className="font-mono font-bold text-signal-cyan">pnpm dev</code>
+            <code className="font-mono font-bold text-signal-cyan">
+              pnpm dev
+            </code>
             {" → "}
-            <code className="font-mono font-bold text-ink-200">localhost:3000</code>
+            <code className="font-mono font-bold text-ink-200">
+              localhost:3000
+            </code>
             {" · El código está disponible para explorar"}
           </p>
         </div>
@@ -1073,7 +1217,10 @@ function WhatIsAnAgent() {
                 "Sin contexto del entorno real",
                 "Reactivo: solo responde, no actúa",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-base text-white">
+                <li
+                  key={item}
+                  className="flex items-center gap-3 text-base text-white"
+                >
                   <X className="h-4 w-4 shrink-0 text-red-400" />
                   {item}
                 </li>
@@ -1091,7 +1238,10 @@ function WhatIsAnAgent() {
                 "Ejecuta: edita código, navega, llama APIs",
                 "Itera autónomamente hasta completar la tarea",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-base text-white">
+                <li
+                  key={item}
+                  className="flex items-center gap-3 text-base text-white"
+                >
                   <Check className="h-4 w-4 shrink-0 text-signal-cyan" />
                   {item}
                 </li>
@@ -1103,7 +1253,8 @@ function WhatIsAnAgent() {
           <Zap className="h-5 w-5 shrink-0 text-signal-amber" />
           <p className="text-base font-semibold text-white">
             "Un LLM es el cerebro. El Agente es el cerebro con{" "}
-            <strong className="text-signal-amber">ojos, manos y memoria</strong>."
+            <strong className="text-signal-amber">ojos, manos y memoria</strong>
+            ."
           </p>
         </div>
       </div>
@@ -1126,10 +1277,12 @@ function WhatIsMCP() {
         </div>
         <div className="grid grid-cols-2 gap-6">
           <div className="flex flex-col gap-4 rounded-2xl border-2 border-ink-600 bg-ink-800 p-7">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">Sin MCP</p>
+            <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">
+              Sin MCP
+            </p>
             <p className="text-base text-white">
-              Cada herramienta habla su propio dialecto. Integración custom para cada combinación de
-              modelo + tool.
+              Cada herramienta habla su propio dialecto. Integración custom para
+              cada combinación de modelo + tool.
             </p>
             <p className="font-mono text-sm text-ink-300">
               VSCode plugin ≠ Cursor plugin ≠ Windsurf plugin
@@ -1140,8 +1293,8 @@ function WhatIsMCP() {
               Con MCP
             </p>
             <p className="text-base text-white">
-              Protocolo estándar y abierto. Cualquier modelo se conecta a cualquier herramienta que
-              implemente MCP.
+              Protocolo estándar y abierto. Cualquier modelo se conecta a
+              cualquier herramienta que implemente MCP.
             </p>
             <p className="font-mono text-sm font-semibold text-signal-violet">
               Chrome DevTools · Supabase · GitHub · Slack · Filesystem
@@ -1152,8 +1305,9 @@ function WhatIsMCP() {
           <Network className="h-5 w-5 shrink-0 text-signal-cyan" />
           <p className="text-base font-semibold text-white">
             "Como{" "}
-            <strong className="text-signal-cyan">USB-C para los agentes</strong>: un estándar
-            universal para que los modelos accedan a cualquier herramienta."
+            <strong className="text-signal-cyan">USB-C para los agentes</strong>
+            : un estándar universal para que los modelos accedan a cualquier
+            herramienta."
           </p>
         </div>
       </div>
@@ -1208,10 +1362,17 @@ function WhyAntigravity() {
             </thead>
             <tbody>
               {rows.map(([dim, before, after], i) => (
-                <tr key={dim} className={i % 2 === 0 ? "bg-ink-900" : "bg-ink-800"}>
-                  <td className="px-6 py-4 text-base font-bold text-white">{dim}</td>
+                <tr
+                  key={dim}
+                  className={i % 2 === 0 ? "bg-ink-900" : "bg-ink-800"}
+                >
+                  <td className="px-6 py-4 text-base font-bold text-white">
+                    {dim}
+                  </td>
                   <td className="px-6 py-4 text-base text-ink-200">{before}</td>
-                  <td className="px-6 py-4 text-base font-medium text-white">{after}</td>
+                  <td className="px-6 py-4 text-base font-medium text-white">
+                    {after}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -1241,7 +1402,8 @@ function WelcomeQR() {
           Escanea para Empezar
         </h1>
         <p className="max-w-2xl text-center text-lg text-ink-200">
-          Sigue la presentación de forma interactiva en tu dispositivo y clona el código fuente para seguir la demostración en vivo.
+          Sigue la presentación de forma interactiva en tu dispositivo y clona
+          el código fuente para seguir la demostración en vivo.
         </p>
 
         <div className="mt-6 grid w-full grid-cols-2 gap-12">
@@ -1293,13 +1455,17 @@ function DownloadKit() {
             Hora de <span className="gradient-text">Código</span>
           </h1>
           <p className="text-lg text-ink-200">
-            Basta de teoría. Cloná el repo, arrancá el server y seguimos la demo en vivo.
+            Basta de teoría. Cloná el repo, arrancá el server y seguimos la demo
+            en vivo.
           </p>
           <div className="flex flex-col gap-3 rounded-2xl border-2 border-ink-600 bg-ink-800 p-6 font-mono text-base">
             <code className="text-signal-cyan">
-              git clone https://github.com/khriztianmoreno/workshop-mcp-chrome-devtools
+              git clone
+              https://github.com/khriztianmoreno/workshop-mcp-chrome-devtools
             </code>
-            <code className="text-signal-cyan">cd workshop-mcp-chrome-devtools</code>
+            <code className="text-signal-cyan">
+              cd workshop-mcp-chrome-devtools
+            </code>
             <code className="text-signal-cyan">pnpm install</code>
             <code className="text-signal-cyan">pnpm dev</code>
           </div>
@@ -1316,7 +1482,9 @@ function DownloadKit() {
             />
           </div>
           <div className="flex flex-col items-center gap-1 rounded-2xl border-2 border-ink-600 bg-ink-800 px-6 py-3 w-full">
-            <p className="font-mono text-xs font-bold text-signal-cyan">github.com/khriztianmoreno/workshop-mcp-chrome-devtools</p>
+            <p className="font-mono text-xs font-bold text-signal-cyan">
+              github.com/khriztianmoreno/workshop-mcp-chrome-devtools
+            </p>
           </div>
         </div>
       </div>
@@ -1333,20 +1501,34 @@ function ChromeMCPIntro() {
           El agente que <span className="gradient-text">ve el navegador</span>
         </h1>
         <p className="max-w-3xl text-xl text-ink-200">
-          Chrome DevTools MCP es un servidor MCP que envuelve el Chrome DevTools Protocol (CDP) — el mismo protocolo que usa el panel de DevTools de tu browser.
+          Chrome DevTools MCP es un servidor MCP que envuelve el Chrome DevTools
+          Protocol (CDP) — el mismo protocolo que usa el panel de DevTools de tu
+          browser.
         </p>
         <div className="grid grid-cols-2 gap-6">
           <div className="flex flex-col gap-4 rounded-2xl border-2 border-ink-600 bg-ink-800 p-7">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">Cómo arranca</p>
+            <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">
+              Cómo arranca
+            </p>
             <div className="flex flex-col gap-2 font-mono text-sm">
-              <code className="text-signal-cyan">chrome --remote-debugging-port=9222</code>
-              <p className="text-xs text-ink-400">↓ WebSocket en ws://localhost:9222</p>
-              <code className="mt-1 text-signal-cyan">npx @chrome-devtools/mcp-server</code>
-              <p className="text-xs text-ink-400">↓ Servidor MCP listo para el agente</p>
+              <code className="text-signal-cyan">
+                chrome --remote-debugging-port=9222
+              </code>
+              <p className="text-xs text-ink-400">
+                ↓ WebSocket en ws://localhost:9222
+              </p>
+              <code className="mt-1 text-signal-cyan">
+                npx @chrome-devtools/mcp-server
+              </code>
+              <p className="text-xs text-ink-400">
+                ↓ Servidor MCP listo para el agente
+              </p>
             </div>
           </div>
           <div className="flex flex-col gap-4 rounded-2xl border-2 border-signal-cyan/50 bg-signal-cyan/10 p-7">
-            <p className="text-xs font-extrabold uppercase tracking-widest text-signal-cyan">Lo que gana el agente</p>
+            <p className="text-xs font-extrabold uppercase tracking-widest text-signal-cyan">
+              Lo que gana el agente
+            </p>
             <ul className="flex flex-col gap-2">
               {[
                 "Estado vivo del DOM en tiempo real",
@@ -1354,7 +1536,10 @@ function ChromeMCPIntro() {
                 "Red: cada request, status y payload",
                 "Performance: trazas reales de CPU y Web Vitals",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-base text-white">
+                <li
+                  key={item}
+                  className="flex items-center gap-3 text-base text-white"
+                >
                   <Check className="h-4 w-4 shrink-0 text-signal-cyan" />
                   {item}
                 </li>
@@ -1365,7 +1550,8 @@ function ChromeMCPIntro() {
         <div className="flex items-center gap-4 rounded-xl border-2 border-signal-amber/40 bg-signal-amber/10 p-5">
           <Network className="h-5 w-5 shrink-0 text-signal-amber" />
           <p className="text-base font-semibold text-white">
-            El mismo protocolo que usás vos en DevTools — ahora el agente lo lee directamente, sin intermediarios.
+            El mismo protocolo que usás vos en DevTools — ahora el agente lo lee
+            directamente, sin intermediarios.
           </p>
         </div>
       </div>
@@ -1418,19 +1604,30 @@ function ChromeMCPTools() {
       <div className="flex flex-col gap-7">
         <Badge variant="cyan">Chrome DevTools MCP</Badge>
         <h1 className="text-5xl font-extrabold text-white">
-          Las herramientas que <span className="gradient-text">expone el MCP</span>
+          Las herramientas que{" "}
+          <span className="gradient-text">expone el MCP</span>
         </h1>
         <div className="grid grid-cols-2 gap-5">
           {categories.map((t) => (
-            <div key={t.category} className={`flex flex-col gap-4 rounded-2xl border-2 ${t.border} ${t.bg} p-6`}>
+            <div
+              key={t.category}
+              className={`flex flex-col gap-4 rounded-2xl border-2 ${t.border} ${t.bg} p-6`}
+            >
               <div className="flex items-center gap-3">
                 <span className={t.color}>{t.icon}</span>
-                <span className={`text-xs font-extrabold uppercase tracking-widest ${t.color}`}>{t.category}</span>
+                <span
+                  className={`text-xs font-extrabold uppercase tracking-widest ${t.color}`}
+                >
+                  {t.category}
+                </span>
               </div>
               <p className="text-sm text-ink-200">{t.desc}</p>
               <div className="flex flex-wrap gap-2">
                 {t.tools.map((name) => (
-                  <code key={name} className="rounded bg-ink-900 px-2 py-1 font-mono text-xs font-bold text-ink-100">
+                  <code
+                    key={name}
+                    className="rounded bg-ink-900 px-2 py-1 font-mono text-xs font-bold text-ink-100"
+                  >
                     {name}
                   </code>
                 ))}
@@ -1439,9 +1636,13 @@ function ChromeMCPTools() {
           ))}
         </div>
         <div className="rounded-xl border-2 border-ink-600 bg-ink-800 p-5 font-mono text-sm">
-          <p className="text-ink-400">{"// el agente decide qué herramienta usar según el contexto"}</p>
+          <p className="text-ink-400">
+            {"// el agente decide qué herramienta usar según el contexto"}
+          </p>
           <p className="mt-1 text-signal-cyan">
-            {"Agent → get_console_logs() → \"Maximum update depth exceeded\" → fix"}
+            {
+              'Agent → get_console_logs() → "Maximum update depth exceeded" → fix'
+            }
           </p>
         </div>
       </div>
@@ -1461,27 +1662,47 @@ function CDPArchitecture() {
           <div className="rounded-2xl border-2 border-signal-orange/50 bg-signal-orange/10 p-5">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-mono text-xs font-extrabold uppercase tracking-widest text-signal-orange">Browser</p>
-                <p className="mt-1 text-lg font-bold text-white">Google Chrome</p>
-                <p className="font-mono text-sm text-ink-200">--remote-debugging-port=9222</p>
+                <p className="font-mono text-xs font-extrabold uppercase tracking-widest text-signal-orange">
+                  Browser
+                </p>
+                <p className="mt-1 text-lg font-bold text-white">
+                  Google Chrome
+                </p>
+                <p className="font-mono text-sm text-ink-200">
+                  --remote-debugging-port=9222
+                </p>
               </div>
-              <p className="font-mono text-xs text-ink-300 text-right">DOM · Console · Network<br />Performance · Sources</p>
+              <p className="font-mono text-xs text-ink-300 text-right">
+                DOM · Console · Network
+                <br />
+                Performance · Sources
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-3 px-6">
             <div className="h-px flex-1 bg-ink-600" />
             <div className="rounded-full border-2 border-ink-500 bg-ink-800 px-5 py-2 text-center">
-              <p className="font-mono text-xs font-bold text-ink-300">Chrome DevTools Protocol (CDP)</p>
-              <p className="font-mono text-xs text-ink-500">WebSocket · JSON-RPC</p>
+              <p className="font-mono text-xs font-bold text-ink-300">
+                Chrome DevTools Protocol (CDP)
+              </p>
+              <p className="font-mono text-xs text-ink-500">
+                WebSocket · JSON-RPC
+              </p>
             </div>
             <div className="h-px flex-1 bg-ink-600" />
           </div>
           <div className="rounded-2xl border-2 border-signal-cyan/50 bg-signal-cyan/10 p-5">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-mono text-xs font-extrabold uppercase tracking-widest text-signal-cyan">MCP Server</p>
-                <p className="mt-1 text-lg font-bold text-white">@chrome-devtools/mcp-server</p>
-                <p className="text-sm text-ink-200">Traduce CDP → herramientas MCP que entiende el agente</p>
+                <p className="font-mono text-xs font-extrabold uppercase tracking-widest text-signal-cyan">
+                  MCP Server
+                </p>
+                <p className="mt-1 text-lg font-bold text-white">
+                  @chrome-devtools/mcp-server
+                </p>
+                <p className="text-sm text-ink-200">
+                  Traduce CDP → herramientas MCP que entiende el agente
+                </p>
               </div>
               <div className="font-mono text-xs text-ink-300 text-right">
                 <p>get_console_logs()</p>
@@ -1493,7 +1714,9 @@ function CDPArchitecture() {
           <div className="flex items-center gap-3 px-6">
             <div className="h-px flex-1 bg-ink-600" />
             <div className="rounded-full border-2 border-ink-500 bg-ink-800 px-5 py-2 text-center">
-              <p className="font-mono text-xs font-bold text-ink-300">Model Context Protocol (MCP)</p>
+              <p className="font-mono text-xs font-bold text-ink-300">
+                Model Context Protocol (MCP)
+              </p>
               <p className="font-mono text-xs text-ink-500">stdio / SSE</p>
             </div>
             <div className="h-px flex-1 bg-ink-600" />
@@ -1501,11 +1724,21 @@ function CDPArchitecture() {
           <div className="rounded-2xl border-2 border-signal-violet/50 bg-signal-violet/10 p-5">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-mono text-xs font-extrabold uppercase tracking-widest text-signal-violet">AI Agent</p>
-                <p className="mt-1 text-lg font-bold text-white">Claude Code / Antigravity IDE</p>
-                <p className="text-sm text-ink-200">Percibe, razona y actúa sobre el runtime real</p>
+                <p className="font-mono text-xs font-extrabold uppercase tracking-widest text-signal-violet">
+                  AI Agent
+                </p>
+                <p className="mt-1 text-lg font-bold text-white">
+                  Claude Code / Antigravity IDE
+                </p>
+                <p className="text-sm text-ink-200">
+                  Percibe, razona y actúa sobre el runtime real
+                </p>
               </div>
-              <p className="font-mono text-xs font-bold text-signal-violet text-right">Closed-Loop<br />Execution</p>
+              <p className="font-mono text-xs font-bold text-signal-violet text-right">
+                Closed-Loop
+                <br />
+                Execution
+              </p>
             </div>
           </div>
         </div>
@@ -1523,14 +1756,19 @@ function Resources() {
           Explorá el código
         </h1>
         <p className="max-w-2xl text-center text-lg text-ink-200">
-          Todo el código de esta charla está disponible — los bugs, los demos, la configuración del MCP y esta presentación.
+          Todo el código de esta charla está disponible — los bugs, los demos,
+          la configuración del MCP y esta presentación.
         </p>
         <div className="mt-4 grid w-full grid-cols-2 gap-12">
           <div className="flex flex-col items-center gap-4">
             <Badge variant="violet">Repositorio</Badge>
             <div className="relative overflow-hidden rounded-2xl border-4 border-signal-violet/50 bg-white p-6 shadow-[0_0_50px_-12px_rgba(168,85,247,0.4)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/slides/qr-code.png" alt="QR GitHub" className="h-60 w-60" />
+              <img
+                src="/slides/qr-code.png"
+                alt="QR GitHub"
+                className="h-60 w-60"
+              />
             </div>
             <p className="font-mono text-xs font-bold text-signal-violet">
               github.com/khriztianmoreno/workshop-mcp-chrome-devtools
@@ -1540,10 +1778,14 @@ function Resources() {
             <Badge variant="cyan">Esta presentación</Badge>
             <div className="relative overflow-hidden rounded-2xl border-4 border-signal-cyan/50 bg-white p-6 shadow-[0_0_50px_-12px_rgba(34,211,238,0.4)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/slides/qr-charla.png" alt="QR Charla" className="h-60 w-60" />
+              <img
+                src="/slides/qr-charla.png"
+                alt="QR Charla"
+                className="h-60 w-60"
+              />
             </div>
             <p className="font-mono text-xs font-bold text-signal-cyan">
-              workshop-mcp-chrome-devtools-git-talk-khriztianmoreno-team.vercel.app/slides
+              bit.ly/4vWM6B9
             </p>
           </div>
         </div>
@@ -1561,18 +1803,51 @@ export type SlideEntry = {
 };
 
 export const SLIDES: SlideEntry[] = [
+  { id: "opening-qr", Component: OpeningQR, title: "QR Presentación" },
   { id: "cover", Component: Cover, title: "Cover" },
   { id: "about-me", Component: AboutMe, title: "About Me" },
-  { id: "agents-are-bound", Component: TheAgentsAreBound, title: "Los agentes son ciegos" },
-  { id: "what-is-an-agent", Component: WhatIsAnAgent, title: "¿Qué es un Agente?" },
+  {
+    id: "agents-are-bound",
+    Component: TheAgentsAreBound,
+    title: "Los agentes son ciegos",
+  },
+  {
+    id: "what-is-an-agent",
+    Component: WhatIsAnAgent,
+    title: "¿Qué es un Agente?",
+  },
   { id: "what-is-mcp", Component: WhatIsMCP, title: "¿Qué es MCP?" },
-  { id: "chrome-mcp-intro", Component: ChromeMCPIntro, title: "Chrome DevTools MCP" },
-  { id: "chrome-mcp-tools", Component: ChromeMCPTools, title: "Herramientas del MCP" },
-  { id: "cdp-architecture", Component: CDPArchitecture, title: "CDP → MCP → Agente" },
+  {
+    id: "chrome-mcp-intro",
+    Component: ChromeMCPIntro,
+    title: "Chrome DevTools MCP",
+  },
+  {
+    id: "chrome-mcp-tools",
+    Component: ChromeMCPTools,
+    title: "Herramientas del MCP",
+  },
+  {
+    id: "cdp-architecture",
+    Component: CDPArchitecture,
+    title: "CDP → MCP → Agente",
+  },
   { id: "closed-loop", Component: ClosedLoop, title: "Closed-Loop Execution" },
-  { id: "why-antigravity", Component: WhyAntigravity, title: "¿Por qué Antigravity?" },
-  { id: "comparison-table", Component: ComparisonTable, title: "Antes vs Ahora" },
-  { id: "three-reflexes", Component: ThreeReflexes, title: "Tres herramientas" },
+  {
+    id: "why-antigravity",
+    Component: WhyAntigravity,
+    title: "¿Por qué Antigravity?",
+  },
+  {
+    id: "comparison-table",
+    Component: ComparisonTable,
+    title: "Antes vs Ahora",
+  },
+  {
+    id: "three-reflexes",
+    Component: ThreeReflexes,
+    title: "Tres herramientas",
+  },
   { id: "pillar-1-intro", Component: Pillar1Intro, title: "Pilar 01 — Intro" },
   { id: "pillar-1-demo", Component: Pillar1Demo, title: "Pilar 01 — Demo" },
   { id: "pillar-2-intro", Component: Pillar2Intro, title: "Pilar 02 — Intro" },
@@ -1582,7 +1857,11 @@ export const SLIDES: SlideEntry[] = [
   { id: "demo-2d", Component: Demo2d, title: "Demo 2d — Performance" },
   { id: "pillar-3-intro", Component: Pillar3Intro, title: "Pilar 03 — Intro" },
   { id: "demo-3", Component: Demo3, title: "Demo 3 — Orquestación" },
-  { id: "transformation", Component: TheTransformation, title: "La Transformación" },
+  {
+    id: "transformation",
+    Component: TheTransformation,
+    title: "La Transformación",
+  },
   { id: "closing", Component: Closing, title: "Closing" },
   { id: "resources", Component: Resources, title: "Recursos" },
   { id: "qna", Component: QnA, title: "Q&A" },

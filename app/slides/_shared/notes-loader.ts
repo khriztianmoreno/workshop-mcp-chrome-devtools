@@ -1,3 +1,4 @@
+import openingQr from "../notes/opening-qr.md";
 import cover from "../notes/cover.md";
 import aboutMe from "../notes/about-me.md";
 import agentsAreBound from "../notes/agents-are-bound.md";
@@ -25,6 +26,7 @@ import resources from "../notes/resources.md";
 import qna from "../notes/qna.md";
 
 export const NOTES: Record<string, string> = {
+  "opening-qr": openingQr,
   cover,
   "about-me": aboutMe,
   "agents-are-bound": agentsAreBound,
