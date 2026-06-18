@@ -1540,10 +1540,10 @@ function Resources() {
             <Badge variant="cyan">Esta presentación</Badge>
             <div className="relative overflow-hidden rounded-2xl border-4 border-signal-cyan/50 bg-white p-6 shadow-[0_0_50px_-12px_rgba(34,211,238,0.4)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/slides/qr-code-slides.png" alt="QR Slides" className="h-60 w-60" />
+              <img src="/slides/qr-charla.png" alt="QR Charla" className="h-60 w-60" />
             </div>
             <p className="font-mono text-xs font-bold text-signal-cyan">
-              workshop-mcp-chrome-devtools.vercel.app/slides
+              workshop-mcp-chrome-devtools-git-talk-khriztianmoreno-team.vercel.app/slides
             </p>
           </div>
         </div>
