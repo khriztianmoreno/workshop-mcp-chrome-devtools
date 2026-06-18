@@ -389,7 +389,7 @@ function Pillar1Intro() {
           <span className="gradient-text">Ultrarrápido</span>
         </h1>
         <blockquote className="border-l-4 border-signal-orange pl-7 text-2xl font-medium italic text-white">
-          "No arrancés de cero. Pegá un screenshot, recibí el JSX."
+          "Adjuntás la referencia visual. El agente construye el componente."
         </blockquote>
         <div className="flex items-center gap-3 rounded-xl border-2 border-ink-600 bg-ink-800 p-5">
           <Code2 className="h-5 w-5 shrink-0 text-ink-300" />
@@ -409,13 +409,13 @@ function Pillar1Demo() {
     <S>
       <div className="flex max-w-4xl flex-col gap-7">
         <Badge>Demo · Pilar 01</Badge>
-        <h2 className="text-3xl font-extrabold text-white">Flujo en vivo</h2>
+        <h2 className="text-3xl font-extrabold text-white">Así sucedió</h2>
         <ol className="flex flex-col gap-4">
           {[
-            "Abrí una referencia visual (Stripe, Linear, Dribbble, etc.)",
-            "Tomá un screenshot de la sección que querés replicar",
-            "Pegalo en Antigravity IDE junto con el prompt",
-            "Refresh → el stub se convierte en código real",
+            "Tomé una referencia visual — una sección de Stripe",
+            "Capturé el screenshot de la sección a replicar",
+            "Lo pegué en Antigravity IDE junto al prompt",
+            "El stub vacío se convirtió en código real en segundos",
           ].map((step, i) => (
             <li key={step} className="flex items-start gap-4 text-xl text-white">
               <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-signal-orange/60 bg-signal-orange/20 text-sm font-extrabold text-signal-orange">
@@ -1324,6 +1324,234 @@ function DownloadKit() {
   );
 }
 
+function ChromeMCPIntro() {
+  return (
+    <S>
+      <div className="flex flex-col gap-7">
+        <Badge variant="cyan">Chrome DevTools MCP</Badge>
+        <h1 className="text-5xl font-extrabold text-white">
+          El agente que <span className="gradient-text">ve el navegador</span>
+        </h1>
+        <p className="max-w-3xl text-xl text-ink-200">
+          Chrome DevTools MCP es un servidor MCP que envuelve el Chrome DevTools Protocol (CDP) — el mismo protocolo que usa el panel de DevTools de tu browser.
+        </p>
+        <div className="grid grid-cols-2 gap-6">
+          <div className="flex flex-col gap-4 rounded-2xl border-2 border-ink-600 bg-ink-800 p-7">
+            <p className="text-xs font-extrabold uppercase tracking-widest text-ink-300">Cómo arranca</p>
+            <div className="flex flex-col gap-2 font-mono text-sm">
+              <code className="text-signal-cyan">chrome --remote-debugging-port=9222</code>
+              <p className="text-xs text-ink-400">↓ WebSocket en ws://localhost:9222</p>
+              <code className="mt-1 text-signal-cyan">npx @chrome-devtools/mcp-server</code>
+              <p className="text-xs text-ink-400">↓ Servidor MCP listo para el agente</p>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4 rounded-2xl border-2 border-signal-cyan/50 bg-signal-cyan/10 p-7">
+            <p className="text-xs font-extrabold uppercase tracking-widest text-signal-cyan">Lo que gana el agente</p>
+            <ul className="flex flex-col gap-2">
+              {[
+                "Estado vivo del DOM en tiempo real",
+                "Consola: errores y logs al instante",
+                "Red: cada request, status y payload",
+                "Performance: trazas reales de CPU y Web Vitals",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-3 text-base text-white">
+                  <Check className="h-4 w-4 shrink-0 text-signal-cyan" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="flex items-center gap-4 rounded-xl border-2 border-signal-amber/40 bg-signal-amber/10 p-5">
+          <Network className="h-5 w-5 shrink-0 text-signal-amber" />
+          <p className="text-base font-semibold text-white">
+            El mismo protocolo que usás vos en DevTools — ahora el agente lo lee directamente, sin intermediarios.
+          </p>
+        </div>
+      </div>
+    </S>
+  );
+}
+
+function ChromeMCPTools() {
+  const categories = [
+    {
+      category: "Consola",
+      icon: <Terminal className="h-5 w-5" />,
+      color: "text-signal-cyan",
+      border: "border-signal-cyan/50",
+      bg: "bg-signal-cyan/10",
+      tools: ["get_console_logs", "get_console_messages"],
+      desc: "Errores, warnings y logs del navegador en tiempo real",
+    },
+    {
+      category: "Red",
+      icon: <Network className="h-5 w-5" />,
+      color: "text-signal-violet",
+      border: "border-signal-violet/50",
+      bg: "bg-signal-violet/10",
+      tools: ["list_network_requests", "get_network_response"],
+      desc: "Todas las requests HTTP: status, headers y payloads",
+    },
+    {
+      category: "Performance",
+      icon: <Gauge className="h-5 w-5" />,
+      color: "text-signal-orange",
+      border: "border-signal-orange/50",
+      bg: "bg-signal-orange/10",
+      tools: ["performance_start_trace", "performance_stop_trace"],
+      desc: "Trazas reales de CPU, memoria y Web Vitals",
+    },
+    {
+      category: "Visual & DOM",
+      icon: <Code2 className="h-5 w-5" />,
+      color: "text-green-400",
+      border: "border-green-500/50",
+      bg: "bg-green-500/10",
+      tools: ["take_screenshot", "get_page_source", "evaluate_script"],
+      desc: "Captura visual del estado actual, HTML vivo y ejecución de JS",
+    },
+  ];
+
+  return (
+    <S>
+      <div className="flex flex-col gap-7">
+        <Badge variant="cyan">Chrome DevTools MCP</Badge>
+        <h1 className="text-5xl font-extrabold text-white">
+          Las herramientas que <span className="gradient-text">expone el MCP</span>
+        </h1>
+        <div className="grid grid-cols-2 gap-5">
+          {categories.map((t) => (
+            <div key={t.category} className={`flex flex-col gap-4 rounded-2xl border-2 ${t.border} ${t.bg} p-6`}>
+              <div className="flex items-center gap-3">
+                <span className={t.color}>{t.icon}</span>
+                <span className={`text-xs font-extrabold uppercase tracking-widest ${t.color}`}>{t.category}</span>
+              </div>
+              <p className="text-sm text-ink-200">{t.desc}</p>
+              <div className="flex flex-wrap gap-2">
+                {t.tools.map((name) => (
+                  <code key={name} className="rounded bg-ink-900 px-2 py-1 font-mono text-xs font-bold text-ink-100">
+                    {name}
+                  </code>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="rounded-xl border-2 border-ink-600 bg-ink-800 p-5 font-mono text-sm">
+          <p className="text-ink-400">{"// el agente decide qué herramienta usar según el contexto"}</p>
+          <p className="mt-1 text-signal-cyan">
+            {"Agent → get_console_logs() → \"Maximum update depth exceeded\" → fix"}
+          </p>
+        </div>
+      </div>
+    </S>
+  );
+}
+
+function CDPArchitecture() {
+  return (
+    <S center>
+      <div className="flex w-full max-w-4xl flex-col items-center gap-6">
+        <Badge>Cómo funciona por dentro</Badge>
+        <h1 className="text-5xl font-extrabold text-white">
+          CDP → MCP → <span className="gradient-text">Agente</span>
+        </h1>
+        <div className="w-full flex flex-col gap-3">
+          <div className="rounded-2xl border-2 border-signal-orange/50 bg-signal-orange/10 p-5">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="font-mono text-xs font-extrabold uppercase tracking-widest text-signal-orange">Browser</p>
+                <p className="mt-1 text-lg font-bold text-white">Google Chrome</p>
+                <p className="font-mono text-sm text-ink-200">--remote-debugging-port=9222</p>
+              </div>
+              <p className="font-mono text-xs text-ink-300 text-right">DOM · Console · Network<br />Performance · Sources</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 px-6">
+            <div className="h-px flex-1 bg-ink-600" />
+            <div className="rounded-full border-2 border-ink-500 bg-ink-800 px-5 py-2 text-center">
+              <p className="font-mono text-xs font-bold text-ink-300">Chrome DevTools Protocol (CDP)</p>
+              <p className="font-mono text-xs text-ink-500">WebSocket · JSON-RPC</p>
+            </div>
+            <div className="h-px flex-1 bg-ink-600" />
+          </div>
+          <div className="rounded-2xl border-2 border-signal-cyan/50 bg-signal-cyan/10 p-5">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="font-mono text-xs font-extrabold uppercase tracking-widest text-signal-cyan">MCP Server</p>
+                <p className="mt-1 text-lg font-bold text-white">@chrome-devtools/mcp-server</p>
+                <p className="text-sm text-ink-200">Traduce CDP → herramientas MCP que entiende el agente</p>
+              </div>
+              <div className="font-mono text-xs text-ink-300 text-right">
+                <p>get_console_logs()</p>
+                <p>list_network_requests()</p>
+                <p>take_screenshot()</p>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center gap-3 px-6">
+            <div className="h-px flex-1 bg-ink-600" />
+            <div className="rounded-full border-2 border-ink-500 bg-ink-800 px-5 py-2 text-center">
+              <p className="font-mono text-xs font-bold text-ink-300">Model Context Protocol (MCP)</p>
+              <p className="font-mono text-xs text-ink-500">stdio / SSE</p>
+            </div>
+            <div className="h-px flex-1 bg-ink-600" />
+          </div>
+          <div className="rounded-2xl border-2 border-signal-violet/50 bg-signal-violet/10 p-5">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="font-mono text-xs font-extrabold uppercase tracking-widest text-signal-violet">AI Agent</p>
+                <p className="mt-1 text-lg font-bold text-white">Claude Code / Antigravity IDE</p>
+                <p className="text-sm text-ink-200">Percibe, razona y actúa sobre el runtime real</p>
+              </div>
+              <p className="font-mono text-xs font-bold text-signal-violet text-right">Closed-Loop<br />Execution</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </S>
+  );
+}
+
+function Resources() {
+  return (
+    <S center>
+      <div className="flex max-w-5xl flex-col items-center gap-8">
+        <Badge variant="cyan">Recursos</Badge>
+        <h1 className="gradient-text text-5xl font-extrabold tracking-tight">
+          Explorá el código
+        </h1>
+        <p className="max-w-2xl text-center text-lg text-ink-200">
+          Todo el código de esta charla está disponible — los bugs, los demos, la configuración del MCP y esta presentación.
+        </p>
+        <div className="mt-4 grid w-full grid-cols-2 gap-12">
+          <div className="flex flex-col items-center gap-4">
+            <Badge variant="violet">Repositorio</Badge>
+            <div className="relative overflow-hidden rounded-2xl border-4 border-signal-violet/50 bg-white p-6 shadow-[0_0_50px_-12px_rgba(168,85,247,0.4)]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/slides/qr-code.png" alt="QR GitHub" className="h-60 w-60" />
+            </div>
+            <p className="font-mono text-xs font-bold text-signal-violet">
+              github.com/khriztianmoreno/workshop-mcp-chrome-devtools
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-4">
+            <Badge variant="cyan">Esta presentación</Badge>
+            <div className="relative overflow-hidden rounded-2xl border-4 border-signal-cyan/50 bg-white p-6 shadow-[0_0_50px_-12px_rgba(34,211,238,0.4)]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/slides/qr-code-slides.png" alt="QR Slides" className="h-60 w-60" />
+            </div>
+            <p className="font-mono text-xs font-bold text-signal-cyan">
+              workshop-mcp-chrome-devtools.vercel.app/slides
+            </p>
+          </div>
+        </div>
+      </div>
+    </S>
+  );
+}
+
 // ─── Registry ──────────────────────────────────────────────────────────────
 
 export type SlideEntry = {
@@ -1333,17 +1561,18 @@ export type SlideEntry = {
 };
 
 export const SLIDES: SlideEntry[] = [
-  { id: "welcome-qr", Component: WelcomeQR, title: "Welcome / QR" },
   { id: "cover", Component: Cover, title: "Cover" },
   { id: "about-me", Component: AboutMe, title: "About Me" },
   { id: "agents-are-bound", Component: TheAgentsAreBound, title: "Los agentes son ciegos" },
   { id: "what-is-an-agent", Component: WhatIsAnAgent, title: "¿Qué es un Agente?" },
   { id: "what-is-mcp", Component: WhatIsMCP, title: "¿Qué es MCP?" },
+  { id: "chrome-mcp-intro", Component: ChromeMCPIntro, title: "Chrome DevTools MCP" },
+  { id: "chrome-mcp-tools", Component: ChromeMCPTools, title: "Herramientas del MCP" },
+  { id: "cdp-architecture", Component: CDPArchitecture, title: "CDP → MCP → Agente" },
   { id: "closed-loop", Component: ClosedLoop, title: "Closed-Loop Execution" },
   { id: "why-antigravity", Component: WhyAntigravity, title: "¿Por qué Antigravity?" },
   { id: "comparison-table", Component: ComparisonTable, title: "Antes vs Ahora" },
   { id: "three-reflexes", Component: ThreeReflexes, title: "Tres herramientas" },
-  { id: "download-kit", Component: DownloadKit, title: "Hora de Código" },
   { id: "pillar-1-intro", Component: Pillar1Intro, title: "Pilar 01 — Intro" },
   { id: "pillar-1-demo", Component: Pillar1Demo, title: "Pilar 01 — Demo" },
   { id: "pillar-2-intro", Component: Pillar2Intro, title: "Pilar 02 — Intro" },
@@ -1355,5 +1584,6 @@ export const SLIDES: SlideEntry[] = [
   { id: "demo-3", Component: Demo3, title: "Demo 3 — Orquestación" },
   { id: "transformation", Component: TheTransformation, title: "La Transformación" },
   { id: "closing", Component: Closing, title: "Closing" },
+  { id: "resources", Component: Resources, title: "Recursos" },
   { id: "qna", Component: QnA, title: "Q&A" },
 ];
