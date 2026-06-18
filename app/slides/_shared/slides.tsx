@@ -133,7 +133,7 @@ function OpeningQR() {
           <img src="/slides/qr-charla.png" alt="QR Charla" className="h-72 w-72" />
         </div>
         <p className="font-mono text-sm font-bold text-signal-cyan">
-          workshop-mcp-chrome-devtools-git-talk-khriztianmoreno-team.vercel.app/slides
+          mcp-chrome-devtools-git-talk-khriztianmoreno-team.vercel.app/slides
         </p>
       </div>
     </S>
